@@ -13,8 +13,8 @@ const userSchema = new Schema ({
         unique: true,
         //Matching Goes Here
     },
-    //thoughts:
-    //friends:
+    thoughts: [{type: Schema.Types.ObjectId, ref: 'Thought'}],
+    friends: [{type: Schema.Types.ObjectId, ref: 'User'}]
 },
 {
     toJSON: {
