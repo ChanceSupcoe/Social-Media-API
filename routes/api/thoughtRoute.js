@@ -5,7 +5,9 @@ const {
     getThoughtById,
     postNewThought,
     putUpdateThought,
-    deleteThought
+    deleteThought,
+    postNewReaction,
+    deleteReaction,
     } =require('../../controllers/thoughtController');
 
 router.route('/')
@@ -17,3 +19,11 @@ router.route('/:id')
     .put(putUpdateThought)
     .delete(deleteThought)
 
+router.route('/:thoughtId/:reactions')
+    .post(postNewReaction)
+
+router.route('/:thoughtId/:reactionId')
+    .delete(deleteReaction)
+
+
+module.exports = router;
