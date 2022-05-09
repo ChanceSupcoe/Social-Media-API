@@ -12,7 +12,7 @@ Insomnia can be used to test the API routes.
 
 ## Usage
 Below is a link to a walkthrough video of the applications functionality.
-
+https://drive.google.com/file/d/1iO9CGpytt58cUMAGMoOM93mvzC7KIOWq/view
 
 ## License
 MIT
