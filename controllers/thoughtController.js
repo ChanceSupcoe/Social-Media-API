@@ -30,20 +30,20 @@ const ThoughtController = {
         });
     },
 
-    postNewThought({body}, res) {
+    postNewThought({params, body}, res) {
         Thought.create(body)
-        .then(dbThoughtData => {
+        .then(({_id}) => {
             User.findOneAndUpdate(
-                {_id: body.userId},
-                {$push: {thoughts: dbThoughtData._id}},
+                {_id: params.userId},
+                {$push: {thoughts: _id}},
                 {new: true}
             )
-            .then (dbUserData => {
-                if (!dbUserData) {
+            .then (dbThoughtData => {
+                if (!dbThoughtData) {
                     res.status(404).json({message: 'User not found'});
                     return;
                 }
-                res.json(dbUserData);
+                res.json(dbThoughtData);
             })
             .catch(err => res.status(400).json(err));
         })
